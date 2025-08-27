@@ -1,0 +1,107 @@
+.navbar {
+  background-color: #000000;
+  border-bottom: 1px solid #1f1f1f;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 4rem;
+}
+
+.logo {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #60a5fa;
+  text-decoration: none;
+}
+
+.logo:hover {
+  color: #3b82f6;
+}
+
+.navLinks {
+  display: flex;
+  gap: 2rem;
+}
+
+.navLink {
+  color: #d1d5db;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.navLink:hover {
+  color: #60a5fa;
+}
+
+/* Added styles for authentication buttons */
+.authButtons {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.loginButton {
+  color: #d1d5db;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  transition: all 0.2s;
+}
+
+.loginButton:hover {
+  color: #60a5fa;
+  background-color: #1f1f1f;
+}
+
+.registerButton {
+  background-color: #3b82f6;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  transition: all 0.2s;
+}
+
+.registerButton:hover {
+  background-color: #2563eb;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .navLinks {
+    gap: 1rem;
+  }
+
+  .navLink {
+    font-size: 0.875rem;
+  }
+
+  /* Added responsive styles for auth buttons */
+  .authButtons {
+    gap: 0.5rem;
+  }
+
+  .loginButton,
+  .registerButton {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.875rem;
+  }
+}

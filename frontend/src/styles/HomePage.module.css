@@ -1,0 +1,97 @@
+.container {
+  /* No styles needed for the main container */
+}
+
+.heroSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  /* Converting to dark theme background */
+  background: linear-gradient(135deg, #000000 0%, #111111 100%);
+  /* Added padding-top to account for fixed navbar */
+  padding-top: 4rem;
+}
+
+.title {
+  font-size: 2.25rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  /* Converting text to light color for dark theme */
+  color: #d1d5db;
+}
+
+.description {
+  font-size: 1.125rem;
+  margin-bottom: 1.5rem;
+  max-width: 36rem;
+  /* Converting text to light color for dark theme */
+  color: #9ca3af;
+}
+
+.highlight {
+  font-weight: 600;
+  /* Adding blue accent color for highlight text */
+  color: #60a5fa;
+}
+
+.buttonContainer {
+  display: flex;
+  gap: 1rem;
+}
+
+.primaryButton {
+  /* Using blue gradient for primary button */
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.primaryButton:hover {
+  /* Enhanced hover effect with transform and shadow */
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+}
+
+.secondaryButton {
+  /* Using dark gray background for secondary button */
+  background-color: #1f1f1f;
+  color: #d1d5db;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: all 0.2s;
+  /* Adding border for better definition in dark theme */
+  border: 1px solid #374151;
+}
+
+.secondaryButton:hover {
+  /* Enhanced hover effect for secondary button */
+  background-color: #374151;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .title {
+    font-size: 1.875rem;
+  }
+
+  .description {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+
+  .buttonContainer {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+}
