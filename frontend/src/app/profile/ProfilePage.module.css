@@ -1,0 +1,269 @@
+/*
+ * ProfilePage.module.css
+ * Giao diện trang profile tối, hiện đại.
+ */
+
+/* Container chính */
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #0d1117;
+  color: #c9d1d9;
+}
+
+/* Khu vực chính của profile */
+.profileLayout {
+  flex-grow: 1;
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 2rem;
+  padding-top: 100px;
+}
+
+/* Thẻ profile chính */
+.profileCard {
+  background-color: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem;
+}
+
+.profileHeader {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.avatarPlaceholder {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #444c56;
+}
+
+.profileInfo {
+  flex-grow: 1;
+}
+
+.profileName {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+}
+
+.profileUsername {
+  font-size: 1rem;
+  color: #8b949e;
+  margin: 0.25rem 0;
+}
+
+.profileBio {
+  font-size: 0.9rem;
+  color: #c9d1d9;
+  margin: 0.5rem 0;
+  line-height: 1.5;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 1rem;
+}
+
+.followButton,
+.messageButton {
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.followButton {
+  background-color: #00e0b7;
+  color: #0d1117;
+}
+
+.followButton:hover {
+  background-color: #00c7a5;
+}
+
+.followButton.following {
+  background-color: #2b3543;
+  color: #c9d1d9;
+  border: 1px solid #444c56;
+}
+
+.followButton.following:hover {
+  background-color: #30363d;
+}
+
+.messageButton {
+  background-color: #2b3543;
+  color: #c9d1d9;
+  border: 1px solid #444c56;
+}
+
+.messageButton:hover {
+  background-color: #30363d;
+}
+
+.profileStats {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  border-top: 1px solid #30363d;
+  padding-top: 1.5rem;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.statNumber {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.statLabel {
+  font-size: 0.9rem;
+  color: #8b949e;
+}
+
+/* Menu tab */
+.profileContent {
+  background-color: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.tabMenu {
+  display: flex;
+  gap: 1rem;
+  border-bottom: 1px solid #30363d;
+  margin-bottom: 1.5rem;
+}
+
+.tabButton {
+  background: none;
+  border: none;
+  color: #8b949e;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.5rem 0;
+  cursor: pointer;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+  position: relative;
+}
+
+.tabButton.activeTab {
+  color: #fff;
+}
+
+.tabButton.activeTab::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #00e0b7;
+}
+
+/* Nội dung của từng tab */
+.tabContent {
+  padding-top: 1rem;
+}
+
+/* Style cho tab Bài viết */
+.postsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.postCard {
+  background-color: #1f2a3a;
+  border-radius: 8px;
+  padding: 1rem;
+  border: 1px solid #30363d;
+}
+
+.postCard p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.postMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  color: #8b949e;
+}
+
+.postActions {
+  display: flex;
+  gap: 1rem;
+}
+
+.actionItem {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* Style cho tab Giới thiệu */
+.aboutContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.aboutItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.aboutLabel {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #8b949e;
+}
+
+.aboutText {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .profileLayout {
+    padding: 1rem;
+    padding-top: 80px;
+  }
+
+  .profileHeader {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .actionButtons {
+    flex-direction: column;
+    width: 100%;
+  }
+}

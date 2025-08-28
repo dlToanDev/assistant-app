@@ -1,97 +1,364 @@
+/*
+ * HomePage.module.css
+ * Giao diện trang chủ tối, giống Facebook.
+ */
+
+/* Container chính */
 .container {
-  /* No styles needed for the main container */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #0d1117;
+  color: #c9d1d9;
 }
 
+/* Section Hero (Khi chưa đăng nhập) */
 .heroSection {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
   text-align: center;
-  /* Converting to dark theme background */
-  background: linear-gradient(135deg, #000000 0%, #111111 100%);
-  /* Added padding-top to account for fixed navbar */
-  padding-top: 4rem;
+  padding: 8rem 2rem;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .title {
-  font-size: 2.25rem;
-  font-weight: bold;
+  font-size: 4rem;
+  font-weight: 800;
+  color: #fff;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   margin-bottom: 1rem;
-  /* Converting text to light color for dark theme */
-  color: #d1d5db;
 }
 
 .description {
-  font-size: 1.125rem;
-  margin-bottom: 1.5rem;
-  max-width: 36rem;
-  /* Converting text to light color for dark theme */
-  color: #9ca3af;
+  font-size: 1.25rem;
+  color: #8b949e;
+  max-width: 600px;
+  line-height: 1.6;
+  margin-bottom: 2rem;
 }
 
 .highlight {
-  font-weight: 600;
-  /* Adding blue accent color for highlight text */
-  color: #60a5fa;
+  color: #00e0b7;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 .buttonContainer {
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.primaryButton,
+.secondaryButton {
+  font-weight: 600;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
 .primaryButton {
-  /* Using blue gradient for primary button */
-  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-  color: white;
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
-  text-decoration: none;
-  transition: all 0.2s;
+  background-color: #00e0b7;
+  color: #0d1117;
+  box-shadow: 0 4px 15px rgba(0, 224, 183, 0.2);
 }
 
 .primaryButton:hover {
-  /* Enhanced hover effect with transform and shadow */
-  background: linear-gradient(135deg, #2563eb, #1e40af);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+  background-color: #00c7a5;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 224, 183, 0.4);
 }
 
 .secondaryButton {
-  /* Using dark gray background for secondary button */
-  background-color: #1f1f1f;
-  color: #d1d5db;
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
-  text-decoration: none;
-  transition: all 0.2s;
-  /* Adding border for better definition in dark theme */
-  border: 1px solid #374151;
+  background-color: #161b22;
+  color: #c9d1d9;
+  border: 1px solid #30363d;
 }
 
 .secondaryButton:hover {
-  /* Enhanced hover effect for secondary button */
-  background-color: #374151;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  background-color: #1f2a3a;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ------------------------------------------- */
+/* Giao diện Feed (Khi đã đăng nhập) */
+/* ------------------------------------------- */
+.feedLayout {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 2rem;
+  padding: 2rem;
+  padding-top: 100px;
+}
+
+.feedLeft,
+.feedRight {
+  /* Có thể thêm style cho các menu bên trái/phải nếu cần */
+  display: none; /* Tạm ẩn để tập trung vào phần trung tâm */
+}
+
+@media (min-width: 1024px) {
+  .feedLeft,
+  .feedRight {
+    display: block;
+    /* Thiết kế riêng cho các sidebar */
+  }
+}
+
+.feedCenter {
+  max-width: 600px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ------------------------------------------- */
+/* Thanh đăng bài (Create Post) */
+/* ------------------------------------------- */
+.createPostCard {
+  background-color: #161b22;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem;
+}
+
+.createPostHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #30363d;
+}
+
+.avatarPlaceholder {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #444c56;
+}
+
+.postInput {
+  flex-grow: 1;
+  background-color: #2b3543;
+  border: none;
+  outline: none;
+  color: #c9d1d9;
+  font-size: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 20px;
+}
+
+.postActions {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 0.75rem;
+}
+
+.postActionButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+  color: #8b949e;
+  padding: 0.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.postActionButton:hover {
+  background-color: #2b3543;
+}
+
+.postActionButton .icon {
+  font-size: 1.25rem;
+}
+
+/* ------------------------------------------- */
+/* Stories */
+/* ------------------------------------------- */
+.storiesContainer {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding: 1rem 0;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  margin-bottom: 1.5rem;
+}
+
+.storiesContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.createStoryCard,
+.storyCard {
+  position: relative;
+  width: 120px;
+  height: 180px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+}
+
+.storyCard:hover {
+  transform: translateY(-5px);
+}
+
+.createStoryCard {
+  background-color: #161b22;
+  border: 1px solid #30363d;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 1rem;
+}
+
+.createStoryImage {
+  width: 100%;
+  height: 100%;
+  background-color: #2b3543;
+  background-image: url("https://via.placeholder.com/120x130/2b3543");
+  background-size: cover;
+  background-position: center;
+}
+
+.createStoryButton {
+  position: absolute;
+  bottom: 30px;
+  width: 32px;
+  height: 32px;
+  background-color: #00e0b7;
+  color: #0d1117;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid #0d1117;
+}
+
+.createStoryText {
+  color: #fff;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+.storyCard {
+  background-color: #161b22;
+  border: 1px solid #30363d;
+  background-image: url("https://via.placeholder.com/120x180/1f2a3a");
+  background-size: cover;
+  background-position: center;
+}
+
+.storyAvatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 3px solid #00e0b7;
+  margin: 0.5rem;
+  background-color: #444c56;
+}
+
+.storyName {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 0.5rem;
+  font-size: 0.9rem;
+  color: #fff;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+/* ------------------------------------------- */
+/* Bảng tin chính (Posts) */
+/* ------------------------------------------- */
+.postCard {
+  background-color: #161b22;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.postHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.postAuthorAvatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #444c56;
+}
+
+.postMeta {
+  flex-grow: 1;
+}
+
+.postAuthorName {
+  font-weight: 600;
+  color: #fff;
+}
+
+.postTimestamp {
+  font-size: 0.8rem;
+  color: #8b949e;
+}
+
+.postMenu {
+  background: none;
+  border: none;
+  color: #8b949e;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.postContent {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.postImage {
+  width: 100%;
+  height: 300px;
+  background-color: #2b3543;
+  background-image: url("https://via.placeholder.com/600x300/2b3543"); /* Thay thế bằng ảnh của bạn */
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.postStats {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.9rem;
+  color: #8b949e;
+  padding-top: 1rem;
+  border-top: 1px solid #30363d;
 }
 
 /* Responsive design */
 @media (max-width: 768px) {
-  .title {
-    font-size: 1.875rem;
-  }
-
-  .description {
-    font-size: 1rem;
-    padding: 0 1rem;
-  }
-
-  .buttonContainer {
-    flex-direction: column;
-    align-items: center;
-    gap: 0.75rem;
+  .feedLayout {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+    padding-top: 80px;
   }
 }
